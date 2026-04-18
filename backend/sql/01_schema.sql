@@ -157,6 +157,7 @@ CREATE TABLE shipments (
     shipped_at       TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     delivered_at     TIMESTAMP NULL,
     tracking_number  VARCHAR(50) UNIQUE,
+    shipping_cost    DECIMAL(10,2) DEFAULT 0.00,
     FOREIGN KEY (sender_id) REFERENCES users(user_id),
     FOREIGN KEY (receiver_id) REFERENCES users(user_id)
 );

@@ -53,12 +53,42 @@ oasys/
 │           ├── ChartWrapper.jsx      ← Phase 6
 │           └── ReportDownload.jsx    ← Phase 8
 
-
+---------------------------------------------------------------------------------
 Phase 2 → Phase 1 → Phase 3 → Phase 4 → Phase 5 → Phase 6 → Phase 7 → Phase 8
 SQL      Backend   Auth      Routes    Frontend  Dashboard  Pages     PDF
+---------------------------------------------------------------------------------
 
-
+PHASE 1
 01_schema.sql      ← tables + constraints
 02_seed.sql        ← sample data
 03_procedures.sql  ← fund transfer, order placement, subscription renewal
 04_triggers.sql    ← audit logging
+---------------------------------------------------------------------------------
+PHASE 2 
+└── backend/
+    ├── package.json        ← dependencies + scripts
+    ├── .env                ← DB credentials, PORT
+    ├── server.js           ← express app entry point
+    └── db/
+        └── connection.js   ← mysql2 pool setup
+---------------------------------------------------------------------------------
+--------------------------
+Table       	Seed Rows
+verticals       	6
+users	            36
+bank_accounts   	8
+transactions	    10
+loans	            5
+properties	        7
+re_deals        	4
+telecom_plans	    4
+subscriptions	    7
+network_usage	    7
+logistics_routes	7
+shipments	        7
+energy_connections	7
+energy_bills	    7
+vehicles	        5
+vehicle_orders  	7
+service_requests	6
+------------------------
