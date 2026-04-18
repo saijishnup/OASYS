@@ -2,9 +2,9 @@ import React from 'react';
 
 function StatCard({ label, value }) {
   return (
-    <div className="stat-card">
-      <h5>{label}</h5>
-      <p>{value}</p>
+    <div className="bg-white rounded shadow p-4 flex flex-col items-center">
+      <div className="text-lg font-semibold mb-2">{label}</div>
+      <div className="text-2xl font-bold">{value}</div>
     </div>
   );
 }
