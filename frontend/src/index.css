@@ -13,9 +13,9 @@
     @apply m-0 bg-slate-950 text-white;
     font-family: 'Google Sans Flex';
     background-image:
-      radial-gradient(circle at top left, rgba(59, 130, 246, 0.12), transparent 24rem),
+      radial-gradient(circle at top left, rgba(44, 81, 141, 0.522), transparent 24rem),
       radial-gradient(circle at top right, rgba(244, 63, 94, 0.1), transparent 20rem),
-      linear-gradient(180deg, #020617 0%, #0f172a 100%);
+      linear-gradient(180deg, #e5e5e9 0%, #1d376f 12%, #0f172a 100%);
   }
 
   * {
@@ -31,11 +31,11 @@
 
 @layer components {
   .glass {
-    @apply border border-white/[0.06] bg-white/[0.04] shadow-xl shadow-black/20 backdrop-blur-sm;
+    @apply border border-white/[0.06] bg-black/[0.54] shadow-xl shadow-black/20 backdrop-blur-sm;
   }
 
   .input-field {
-    @apply w-full rounded-xl border border-white/[0.08] bg-slate-900/80 px-3 py-2.5 text-sm text-gray-200 outline-none transition placeholder:text-gray-600 focus:border-blue-500/50 focus:ring-2 focus:ring-blue-500/10;
+    @apply w-full rounded-xl border border-white/[0.08] bg-slate-900/80 px-3 py-2.5 text-sm text-white outline-none transition placeholder:text-gray-600 focus:border-blue-500/50 focus:ring-2 focus:ring-blue-500/10;
   }
 
   .btn-primary {
@@ -43,7 +43,7 @@
   }
 
   .btn-ghost {
-    @apply rounded-xl border border-white/[0.08] bg-white/[0.03] px-4 py-2.5 font-display font-semibold text-gray-200 transition hover:bg-white/[0.06];
+    @apply rounded-xl border border-white/[0.08] bg-white/[0.03] px-4 py-2.5 font-display font-semibold text-white transition hover:bg-white/[0.06];
   }
 
   .badge {

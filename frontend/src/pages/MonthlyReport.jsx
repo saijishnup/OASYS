@@ -25,7 +25,7 @@ export default function MonthlyReport() {
           <h1 className="flex items-center gap-3 font-display text-2xl font-bold tracking-tight text-white">
             <BarChart2 size={22} className="text-teal-400" /> Monthly Report
           </h1>
-          <p className="mt-1 text-sm text-gray-500">Generated from the currently available backend dashboard aggregates.</p>
+          <p className="mt-1 text-sm text-gray-400">Generated from the currently available backend dashboard aggregates.</p>
         </div>
         <div className="glass flex items-center gap-2 rounded-xl px-4 py-2 text-sm text-gray-300">
           <Calendar size={14} />

@@ -68,7 +68,7 @@ export default function Orders() {
         <h1 className="flex items-center gap-3 font-display text-2xl font-bold tracking-tight text-white">
           <ShoppingCart size={22} className="text-orange-400" /> Orders
         </h1>
-        <p className="mt-1 text-sm text-gray-500">Unified read-only view across vehicle orders and real-estate deals.</p>
+        <p className="mt-1 text-sm text-gray-400">Unified read-only view across vehicle orders and real-estate deals.</p>
       </div>
 
       <div className="grid grid-cols-2 gap-3 md:grid-cols-4">

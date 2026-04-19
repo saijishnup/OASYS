@@ -45,7 +45,7 @@ export default function Users() {
         <h1 className="flex items-center gap-3 font-display text-2xl font-bold tracking-tight text-white">
           <UsersIcon size={22} className="text-sky-400" /> Users
         </h1>
-        <p className="mt-1 text-sm text-gray-500">Derived customer directory built from backend vertical records.</p>
+        <p className="mt-1 text-sm text-gray-400">Derived customer directory built from backend vertical records.</p>
       </div>
 
       <div className="grid grid-cols-2 gap-3 md:grid-cols-4">

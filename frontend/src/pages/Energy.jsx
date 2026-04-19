@@ -90,7 +90,7 @@ export default function Energy() {
         <h1 className="flex items-center gap-3 font-display text-2xl font-bold tracking-tight text-white">
           <Zap size={22} className="text-rose-400" /> Energy
         </h1>
-        <p className="mt-1 text-sm text-gray-500">Connections, billing, and monthly consumption trends.</p>
+        <p className="mt-1 text-sm text-gray-400">Connections, billing, and monthly consumption trends.</p>
       </div>
 
       <div className="grid grid-cols-2 gap-3 md:grid-cols-4">

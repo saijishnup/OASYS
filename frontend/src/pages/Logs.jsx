@@ -34,7 +34,7 @@ export default function Logs() {
         <h1 className="flex items-center gap-3 font-display text-2xl font-bold tracking-tight text-white">
           <ScrollText size={22} className="text-indigo-400" /> Audit Logs
         </h1>
-        <p className="mt-1 text-sm text-gray-500">Recent backend activity stream derived from the dashboard feed.</p>
+        <p className="mt-1 text-sm text-gray-400">Recent backend activity stream derived from the dashboard feed.</p>
       </div>
 
       <ChartWrapper type="bar" data={chartData} dataKey="count" xKey="name" title="Activity by Action" color="#6366f1" />

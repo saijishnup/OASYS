@@ -31,7 +31,7 @@ export default function Segments() {
         <h1 className="flex items-center gap-3 font-display text-2xl font-bold tracking-tight text-white">
           <PieIcon size={22} className="text-pink-400" /> Segments
         </h1>
-        <p className="mt-1 text-sm text-gray-500">Segment overview derived from backend user distribution and product activity.</p>
+        <p className="mt-1 text-sm text-gray-400">Segment overview derived from backend user distribution and product activity.</p>
       </div>
 
       <div className="grid grid-cols-2 gap-3 md:grid-cols-4">

@@ -97,7 +97,7 @@ export default function Automobiles() {
         <h1 className="flex items-center gap-3 font-display text-2xl font-bold tracking-tight text-white">
           <Car size={22} className="text-emerald-400" /> Automobiles
         </h1>
-        <p className="mt-1 text-sm text-gray-500">Vehicle catalog, orders, and service operations.</p>
+        <p className="mt-1 text-sm text-gray-400">Vehicle catalog, orders, and service operations.</p>
       </div>
 
       <div className="grid grid-cols-2 gap-3 md:grid-cols-4">

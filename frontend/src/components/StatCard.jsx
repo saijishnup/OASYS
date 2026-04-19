@@ -16,7 +16,7 @@ export default function StatCard({ title, value, icon: Icon, color = 'brand', de
       style={{ animationDelay: `${delay}ms`, animationFillMode: 'both' }}
     >
       <div className="mb-3 flex items-center justify-between gap-3">
-        <p className="text-xs font-mono uppercase tracking-wide text-gray-500">{title}</p>
+        <p className="text-xs font-mono uppercase tracking-wide text-white">{title}</p>
         {Icon ? (
           <div className="rounded-xl bg-white/[0.06] p-2">
             <Icon size={16} />

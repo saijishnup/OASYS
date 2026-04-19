@@ -123,7 +123,7 @@ export default function Dashboard() {
       <div className="flex flex-wrap items-start justify-between gap-4">
         <div>
           <h1 className="font-display text-3xl font-bold text-white">Enterprise Dashboard</h1>
-          <p className="mt-2 text-sm text-gray-500">Live operational summary across every OASYS vertical.</p>
+          <p className="mt-2 text-sm text-gray-400">Live operational summary across every OASYS vertical.</p>
         </div>
         <button onClick={fetchDashboard} className="btn-ghost flex items-center gap-2 text-sm" disabled={loading}>
           <RefreshCw size={14} className={loading ? 'animate-spin' : ''} />

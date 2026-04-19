@@ -103,7 +103,7 @@ export default function RealEstate() {
         <h1 className="flex items-center gap-3 font-display text-2xl font-bold tracking-tight text-white">
           <Building2 size={22} className="text-blue-400" /> Real Estate
         </h1>
-        <p className="mt-1 text-sm text-gray-500">Property inventory, deal flow, and market value snapshots.</p>
+        <p className="mt-1 text-sm text-gray-400">Property inventory, deal flow, and market value snapshots.</p>
       </div>
 
       <div className="grid grid-cols-2 gap-3 md:grid-cols-4">

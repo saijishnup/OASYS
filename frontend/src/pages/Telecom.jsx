@@ -127,7 +127,7 @@ export default function Telecom() {
             <Radio size={20} className="text-violet-400" />
             Telecom
           </h1>
-          <p className="mt-1 text-sm text-gray-500">Plans, subscriptions &amp; network usage visibility.</p>
+          <p className="mt-1 text-sm text-gray-400">Plans, subscriptions &amp; network usage visibility.</p>
         </div>
         <button
           onClick={handleRefresh}
