@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react'
-import { BarChart2, Calendar } from 'lucide-react'
+import { BarChart2, Calendar, Download } from 'lucide-react'
 import api from '../api/axios'
 import ChartWrapper from '../components/ChartWrapper'
+import toast from 'react-hot-toast'
 
 export default function MonthlyReport() {
   const [domainRevenue, setDomainRevenue] = useState([])
@@ -18,6 +19,16 @@ export default function MonthlyReport() {
       .catch(() => {})
   }, [])
 
+  const handlePDFDownload = () => {
+    try {
+      // Simple print-to-PDF fallback
+      window.print()
+      toast.success('PDF download initiated')
+    } catch (error) {
+      toast.error('Failed to generate PDF')
+    }
+  }
+
   return (
     <div className="mx-auto max-w-7xl space-y-6 p-6">
       <div className="flex flex-wrap items-center justify-between gap-4">
@@ -27,9 +38,19 @@ export default function MonthlyReport() {
           </h1>
           <p className="mt-1 text-sm text-gray-400">Generated from the currently available backend dashboard aggregates.</p>
         </div>
-        <div className="glass flex items-center gap-2 rounded-xl px-4 py-2 text-sm text-gray-300">
-          <Calendar size={14} />
-          {month} {year}
+        <div className="flex items-center gap-2">
+          <div className="glass flex items-center gap-2 rounded-xl px-4 py-2 text-sm text-gray-300">
+            <Calendar size={14} />
+            {month} {year}
+          </div>
+          <button
+            onClick={handlePDFDownload}
+            className="glass flex items-center gap-2 rounded-xl px-4 py-2 text-sm text-gray-300 transition-colors hover:bg-white/[0.08]"
+            title="Download report as PDF"
+          >
+            <Download size={14} />
+            PDF
+          </button>
         </div>
       </div>
 

@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom'
+import logoImage from '../assets/logo.png'
 import {
   LayoutDashboard,
   Landmark,
@@ -73,15 +74,13 @@ export default function Sidebar({ open, onClose }) {
       >
         <div className="flex h-16 items-center justify-between border-b border-white/[0.05] px-4">
           <div className="flex items-center gap-3">
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-brand-500 to-brand-700 shadow-lg shadow-brand-500/30">
-              <span className="font-display text-sm font-black text-white">O</span>
-            </div>
+            <img src={logoImage} alt="OASYS" className="h-8 w-8 rounded-lg" />
             <div>
               <p className="font-display text-base font-bold leading-none text-white">OASYS</p>
               <p className="mt-0.5 font-mono text-[10px] tracking-widest text-brand-500">ENTERPRISE</p>
             </div>
           </div>
-          <button onClick={onClose} className="p-1 text-gray-4a00 transition-colors hover:text-white lg:hidden">
+          <button onClick={onClose} className="p-1 text-gray-400 transition-colors hover:text-white lg:hidden">
             <X size={16} />
           </button>
         </div>
