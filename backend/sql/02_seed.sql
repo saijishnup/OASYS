@@ -158,7 +158,7 @@ INSERT INTO logistics_routes (origin, destination, distance_km, avg_days) VALUES
 ('Surat',     'Nagpur',     920.00, 2),
 ('Lucknow',   'Patna',      560.00, 1);
 
-INSERT INTO shipments (sender_id, receiver_id, origin, destination, weight_kg, status, tracking_number) VALUES
+INSERT INTO shipments (sender_id, receiver_id, origin, destination, weight_kg, status, tracking_number, shipping_cost ) VALUES
 (16, 17, 'Mumbai',    'Delhi',     12.50, 'delivered',  'TRK100001', 1500.00),
 (18, 19, 'Bangalore', 'Chennai',    5.00, 'in_transit', 'TRK100002',  800.00),
 (20, 16, 'Hyderabad', 'Kolkata',   30.00, 'pending',    'TRK100003', 2200.00),
