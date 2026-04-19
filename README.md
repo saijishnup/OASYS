@@ -144,7 +144,8 @@ mysql -u root -p oasys_db < sql/01_schema.sql
 mysql -u root -p oasys_db < sql/02_seed.sql
 mysql -u root -p oasys_db < sql/03_procedures.sql
 mysql -u root -p oasys_db < sql/04_triggers.sql
-mysql -u root -p oasys_db < sql/05_backfill.sql
+mysql -u root -p oasys_db < sql/05_curl http://localhost:5001/       # Backend health check
+# Then open http://localhost:5174 in browserbackfill.sql
 ```
 
 5. Start the development server:
