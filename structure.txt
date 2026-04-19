@@ -6,7 +6,7 @@ oasys/
 │   ├── db/
 │   │   └── connection.js             ← Phase 1
 │   ├── middleware/
-│   │   └── auth.middleware.js        ← Phase 3  [ADDED - protect routes]
+│   │   └── auth.middleware.js        ← Phase 3
 │   ├── sql/
 │   │   ├── 01_schema.sql             ← Phase 2
 │   │   ├── 02_seed.sql               ← Phase 2
@@ -25,33 +25,37 @@ oasys/
 ├── frontend/
 │   ├── package.json                  ← Phase 5
 │   ├── tailwind.config.js            ← Phase 5
-│   ├── postcss.config.js             ← Phase 5  [ADDED - required for Tailwind]
-│   ├── vite.config.js                ← Phase 5  [ADDED - Vite bundler config]
+│   ├── postcss.config.js             ← Phase 5
+│   ├── vite.config.js                ← Phase 5
 │   ├── index.html                    ← Phase 5
 │   └── src/
 │       ├── main.jsx                  ← Phase 5
 │       ├── App.jsx                   ← Phase 5
-│       ├── index.css                 ← Phase 5  [ADDED - Tailwind directives]
+│       ├── index.css                 ← Phase 5
+│       │
 │       ├── api/
 │       │   └── axios.js              ← Phase 5
+│       │
 │       ├── context/
-│       │   └── AuthContext.jsx       ← Phase 5  [ADDED - global auth state]
-│       ├── pages/
-│       │   ├── Login.jsx             ← Phase 5
-│       │   ├── Dashboard.jsx         ← Phase 6
-│       │   ├── Fintech.jsx           ← Phase 7
-│       │   ├── RealEstate.jsx        ← Phase 7
-│       │   ├── Telecom.jsx           ← Phase 7
-│       │   ├── Logistics.jsx         ← Phase 7
-│       │   ├── Energy.jsx            ← Phase 7
-│       │   └── Automobiles.jsx       ← Phase 7
-│       └── components/
-│           ├── Navbar.jsx            ← Phase 5
-│           ├── Sidebar.jsx           ← Phase 5
-│           ├── PrivateRoute.jsx      ← Phase 5  [ADDED - protect frontend routes]
-│           ├── StatCard.jsx          ← Phase 6
-│           ├── ChartWrapper.jsx      ← Phase 6
-│           └── ReportDownload.jsx    ← Phase 8
+│       │   └── AuthContext.jsx       ← Phase 5
+│       │
+│       ├── components/
+│       │   ├── Navbar.jsx            ← Phase 5
+│       │   ├── Sidebar.jsx           ← Phase 5
+│       │   ├── PrivateRoute.jsx      ← Phase 5
+│       │   ├── StatCard.jsx          ← Phase 6
+│       │   ├── ChartWrapper.jsx      ← Phase 6
+│       │   └── ReportDownload.jsx    ← Phase 8
+│       │
+│       └── pages/
+│           ├── Login.jsx             ← Phase 5
+│           ├── Dashboard.jsx         ← Phase 6
+│           ├── Fintech.jsx           ← Phase 7
+│           ├── RealEstate.jsx        ← Phase 7
+│           ├── Telecom.jsx           ← Phase 7
+│           ├── Logistics.jsx         ← Phase 7
+│           ├── Energy.jsx            ← Phase 7
+│           └── Automobiles.jsx       ← Phase 7
 
 ---------------------------------------------------------------------------------
 Phase 2 → Phase 1 → Phase 3 → Phase 4 → Phase 5 → Phase 6 → Phase 7 → Phase 8
