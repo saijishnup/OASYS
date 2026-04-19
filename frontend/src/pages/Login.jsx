@@ -264,17 +264,6 @@ export default function Login() {
           cursor: pointer;
         }
 
-        .forgot-link {
-          font-size: 13px;
-          color: rgba(0, 200, 255, 0.7);
-          text-decoration: none;
-          transition: color 0.2s;
-        }
-
-        .forgot-link:hover {
-          color: #00c8ff;
-        }
-
         .submit-btn {
           width: 100%;
           padding: 13px;
@@ -593,7 +582,6 @@ export default function Login() {
                 <input type="checkbox" />
                 Remember me
               </label>
-              <a href="#" className="forgot-link">Forgot password?</a>
             </div>
 
             <button type="submit" className="submit-btn" disabled={submitting}>
