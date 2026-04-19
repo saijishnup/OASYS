@@ -1,4 +1,4 @@
-# OASYS - Multi-Vertical Analytics Platform
+# OASYS - An Operations and Analytics System
 
 OASYS is a comprehensive analytics platform designed to provide unified insights across multiple business verticals. The system consolidates data from Automobiles, Real Estate, Telecom, Logistics, Energy, and FinTech sectors into a single, cohesive dashboard.
 
