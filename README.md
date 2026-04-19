@@ -6,7 +6,7 @@ OASYS is a comprehensive analytics platform designed to provide unified insights
 
 OASYS delivers real-time analytics, reporting, and data management capabilities across diverse business segments. The platform is built with a modern tech stack using React for the frontend, Express.js for the backend, and MySQL for data persistence.
 
-## 
+## project structure 
 
 ```
 OASYS/
