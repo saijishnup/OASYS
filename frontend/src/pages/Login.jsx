@@ -44,7 +44,7 @@ export default function Login() {
   return (
     <>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Google+Sans+Flex:wght@300;400;500;600;700;800&family=REM:wght@300;400;500;600;700;800&display=swap');
 
         .login-root {
           min-height: 100vh;
@@ -52,7 +52,7 @@ export default function Login() {
           align-items: center;
           justify-content: flex-end;
           position: relative;
-          font-family: 'DM Sans', sans-serif;
+          font-family: 'Google Sans Flex';
           overflow: hidden;
           background: #060b14;
         }
@@ -139,7 +139,7 @@ export default function Login() {
         }
 
         .brand-name {
-          font-family: 'Lato', sans-serif;
+          font-family: 'REM';
           font-size: 18px;
           font-weight: 700;
           color: #fff;
@@ -147,7 +147,7 @@ export default function Login() {
         }
 
         .login-heading {
-          font-family: 'Lato', sans-serif;
+          font-family: 'REM';
           font-size: 28px;
           font-weight: 800;
           color: #ffffff;
@@ -192,7 +192,7 @@ export default function Login() {
           border-radius: 10px;
           padding: 12px 42px 12px 16px;
           font-size: 15px;
-          font-family: 'DM Sans', sans-serif;
+          font-family: 'Google Sans Flex';
           color: #fff;
           outline: none;
           transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
@@ -271,7 +271,7 @@ export default function Login() {
           border-radius: 10px;
           background: linear-gradient(135deg, #00c8ff 0%, #0070f3 100%);
           color: #fff;
-          font-family: 'Lato', sans-serif;
+          font-family: 'REM';
           font-size: 15px;
           font-weight: 700;
           letter-spacing: 0.02em;
@@ -347,7 +347,7 @@ export default function Login() {
           background: rgba(255,255,255,0.04);
           color: rgba(255,255,255,0.5);
           font-size: 13px;
-          font-family: 'DM Sans', sans-serif;
+          font-family: 'Google Sans Flex';
           cursor: pointer;
           transition: background 0.2s, border-color 0.2s, color 0.2s;
         }
@@ -404,7 +404,7 @@ export default function Login() {
         }
 
         .chip-val {
-          font-family: 'Lato', sans-serif;
+          font-family: 'REM';
           font-size: 20px;
           font-weight: 700;
           color: #00c8ff;
@@ -443,7 +443,7 @@ export default function Login() {
         }
 
         .hl-title {
-          font-family: 'Lato', sans-serif;
+          font-family: 'REM';
           font-size: clamp(32px, 3.5vw, 50px);
           font-weight: 800;
           color: #fff;
@@ -483,13 +483,14 @@ export default function Login() {
 
         {/* Left headline */}
         <div className={`headline-left ${mounted ? 'visible' : ''}`}>
-          <p className="hl-eyebrow">Multi-Vertical Control</p>
+
+          <p className="hl-eyebrow">Multi-Sector Operations and Analytics System</p>
           <h1 className="hl-title">
-            <span>Analytics Platform</span>
+            <span>OASYS</span>
           </h1>
           <p className="hl-desc">
             Unified dashboard for all your<br />
-            business verticals in one platform.
+            business Sectors in one platform.
           </p>
         </div>
 
@@ -500,7 +501,7 @@ export default function Login() {
             <div className="chip-label">Revenue</div>
           </div>
           <div className="chip">
-            <div className="chip-val">12.4k</div>
+            <div className="chip-val">10k+</div>
             <div className="chip-label">Active users</div>
           </div>
         </div>
