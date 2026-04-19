@@ -15,9 +15,9 @@ const pool = mysql.createPool({
 const db = pool.promise();
 
 db.getConnection()
-    .then(() => console.log('✅ MySQL connected to oasys_db'))
+    .then(() => console.log('MySQL connected to oasys_db'))
     .catch(err => {
-        console.error('❌ DB connection failed:', err.message);
+        console.error('DB connection failed:', err.message);
         process.exit(1);
     });
 
