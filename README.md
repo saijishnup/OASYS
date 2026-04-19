@@ -1,4 +1,4 @@
-# OASYS - Multi-Vertical Analytics Platform
+# OASYS - An Operations and Analytics System
 
 OASYS is a comprehensive analytics platform designed to provide unified insights across multiple business verticals. The system consolidates data from Automobiles, Real Estate, Telecom, Logistics, Energy, and FinTech sectors into a single, cohesive dashboard.
 
@@ -281,28 +281,6 @@ ADMIN_PASSWORD=admin123
 VITE_API_BASE=http://localhost:5001/api
 ```
 
-## Git Workflow
-
-The project uses Git for version control:
-
-```bash
-# Check current branch
-git branch -a
-
-# View commit history
-git log --oneline
-
-# View remote configuration
-git remote -v
-
-# Add changes and commit
-git add .
-git commit -m "Your message"
-
-# Push to master branch
-git push origin master
-```
-
 ## Performance Considerations
 
 - Database connection pooling (max 10 connections)
@@ -328,13 +306,10 @@ git push origin master
 - Verify database user has all privileges
 - Check MySQL service is running
 
-## License
-
-This project is provided as-is for development and educational purposes.
-
 ## Support
 
-For issues, questions, or contributions, please refer to project documentation or contact the development team.
+For issues, questions, or contributions, please refer to project documentation or contact 
+-saijishnup@gmail.com
 
 ## Project Status
 
