@@ -1,13 +1,5 @@
-import React from 'react';
+import ChartWrapper from './ChartWrapper'
 
-function BarChart({ data, title }) {
-  // TODO: Implement chart with a library like Chart.js or Recharts
-  return (
-    <div className="bar-chart">
-      <h4>{title}</h4>
-      {/* Chart goes here */}
-    </div>
-  );
+export default function BarChart({ data, title, dataKey = 'value', xKey = 'name', color = '#3b82f6' }) {
+  return <ChartWrapper type="bar" data={data} title={title} dataKey={dataKey} xKey={xKey} color={color} />
 }
-
-export default BarChart;

@@ -1,13 +1,5 @@
-import React from 'react';
+import ChartWrapper from './ChartWrapper'
 
-function LineChart({ data, title }) {
-  // TODO: Implement chart with a library like Chart.js or Recharts
-  return (
-    <div className="line-chart">
-      <h4>{title}</h4>
-      {/* Chart goes here */}
-    </div>
-  );
+export default function LineChart({ data, title, dataKey = 'value', xKey = 'name', color = '#10b981' }) {
+  return <ChartWrapper type="area" data={data} title={title} dataKey={dataKey} xKey={xKey} color={color} />
 }
-
-export default LineChart;

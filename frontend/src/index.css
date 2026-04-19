@@ -1,3 +1,120 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  body {
+    @apply m-0 bg-slate-950 text-white;
+    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background-image:
+      radial-gradient(circle at top left, rgba(59, 130, 246, 0.12), transparent 24rem),
+      radial-gradient(circle at top right, rgba(244, 63, 94, 0.1), transparent 20rem),
+      linear-gradient(180deg, #020617 0%, #0f172a 100%);
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  button,
+  input,
+  select {
+    font: inherit;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply border border-white/[0.06] bg-white/[0.04] shadow-xl shadow-black/20 backdrop-blur-sm;
+  }
+
+  .input-field {
+    @apply w-full rounded-xl border border-white/[0.08] bg-slate-900/80 px-3 py-2.5 text-sm text-gray-200 outline-none transition placeholder:text-gray-600 focus:border-blue-500/50 focus:ring-2 focus:ring-blue-500/10;
+  }
+
+  .btn-primary {
+    @apply rounded-xl bg-blue-600 px-4 py-2.5 font-display font-semibold text-white transition hover:bg-blue-500 active:scale-[0.99];
+  }
+
+  .btn-ghost {
+    @apply rounded-xl border border-white/[0.08] bg-white/[0.03] px-4 py-2.5 font-display font-semibold text-gray-200 transition hover:bg-white/[0.06];
+  }
+
+  .badge {
+    @apply inline-flex items-center rounded-full border px-2.5 py-1 font-mono text-[10px] uppercase tracking-wide;
+  }
+
+  .badge-green {
+    @apply border-emerald-500/20 bg-emerald-500/10 text-emerald-300;
+  }
+
+  .badge-blue {
+    @apply border-blue-500/20 bg-blue-500/10 text-blue-300;
+  }
+
+  .badge-violet {
+    @apply border-violet-500/20 bg-violet-500/10 text-violet-300;
+  }
+
+  .badge-orange {
+    @apply border-orange-500/20 bg-orange-500/10 text-orange-300;
+  }
+
+  .badge-yellow {
+    @apply border-amber-500/20 bg-amber-500/10 text-amber-300;
+  }
+
+  .badge-red {
+    @apply border-rose-500/20 bg-rose-500/10 text-rose-300;
+  }
+
+  .badge-gray {
+    @apply border-white/[0.08] bg-white/[0.04] text-gray-400;
+  }
+
+  .table-row-hover {
+    @apply transition-colors hover:bg-white/[0.03];
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: 'Lato', sans-serif;
+  }
+
+  .font-body {
+    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  }
+
+  .bg-surface-900 {
+    background-color: #0f172a;
+  }
+
+  .bg-surface-800 {
+    background-color: #172033;
+  }
+
+  .bg-surface-700 {
+    background-color: #263247;
+  }
+
+  .animate-fade-up {
+    animation: fadeUp 0.45s ease-out both;
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

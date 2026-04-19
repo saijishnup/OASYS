@@ -1,26 +1,40 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import { Menu, LogOut } from 'lucide-react'
+import { useNavigate } from 'react-router-dom'
+import { useAuth } from '../context/AuthContext'
 
-function Navbar({ onLogout }) {
+export default function Navbar({ onMenuToggle }) {
+  const navigate = useNavigate()
+  const { logout, username } = useAuth()
+
+  const handleLogout = () => {
+    logout()
+    navigate('/login')
+  }
+
   return (
-    <nav className="flex items-center justify-between bg-blue-600 px-6 py-3 shadow text-white">
-      <div className="flex gap-4">
-        <Link className="hover:text-blue-200 font-semibold" to="/dashboard">Dashboard</Link>
-        <Link className="hover:text-blue-200 font-semibold" to="/orders">Orders</Link>
-        <Link className="hover:text-blue-200 font-semibold" to="/products">Products</Link>
-        <Link className="hover:text-blue-200 font-semibold" to="/users">Users</Link>
-        <Link className="hover:text-blue-200 font-semibold" to="/segments">Segments</Link>
-        <Link className="hover:text-blue-200 font-semibold" to="/logs">Logs</Link>
-        <Link className="hover:text-blue-200 font-semibold" to="/monthly-report">Monthly Report</Link>
+    <header className="flex h-16 items-center justify-between border-b border-white/[0.05] bg-surface-900/90 px-4 backdrop-blur md:px-6">
+      <div className="flex items-center gap-3">
+        <button
+          onClick={onMenuToggle}
+          className="rounded-xl border border-white/[0.08] p-2 text-gray-400 transition hover:text-white lg:hidden"
+        >
+          <Menu size={18} />
+        </button>
+        <div>
+          <p className="font-display text-lg font-semibold text-white">Operations Dashboard</p>
+          <p className="font-mono text-[11px] tracking-wide text-gray-500">
+            Multi-vertical control center{username ? ` • ${username}` : ''}
+          </p>
+        </div>
       </div>
+
       <button
-        onClick={onLogout}
-        className="bg-white text-blue-600 px-4 py-1 rounded hover:bg-blue-100 font-bold"
+        onClick={handleLogout}
+        className="btn-ghost flex items-center gap-2 text-sm"
       >
+        <LogOut size={14} />
         Logout
       </button>
-    </nav>
-  );
+    </header>
+  )
 }
-
-export default Navbar;

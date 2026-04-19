@@ -1,52 +1,61 @@
-import React from 'react';
+import { useEffect, useState } from 'react'
+import { PieChart as PieIcon, Users, TrendingUp, Radio } from 'lucide-react'
+import api from '../api/axios'
+import StatCard from '../components/StatCard'
+import ChartWrapper from '../components/ChartWrapper'
 
-function Segments() {
-  // TODO: Fetch and display customer segments, color-code rows
+export default function Segments() {
+  const [verticals, setVerticals] = useState([])
+  const [telecomSummary, setTelecomSummary] = useState({})
+  const [fintechSummary, setFintechSummary] = useState({})
+
+  useEffect(() => {
+    Promise.all([
+      api.get('/dashboard/vertical-summary'),
+      api.get('/telecom/summary'),
+      api.get('/fintech/summary'),
+    ])
+      .then(([verticalRes, telecomRes, fintechRes]) => {
+        setVerticals((verticalRes.data || []).map((row) => ({ name: row.vertical_name, value: row.user_count })))
+        setTelecomSummary(telecomRes.data || {})
+        setFintechSummary(fintechRes.data || {})
+      })
+      .catch(() => {})
+  }, [])
+
+  const totalUsers = verticals.reduce((sum, row) => sum + Number(row.value || 0), 0)
+
   return (
-    <div className="p-6 bg-gray-50 min-h-screen">
-      <h2 className="text-2xl font-bold mb-6">Customer Segments</h2>
-      <div className="bg-white rounded shadow p-4">
-        {/* DataTable for segments */}
-        <div className="overflow-x-auto">
-          <table className="min-w-full text-sm">
-            <thead>
-              <tr className="bg-gray-100">
-                <th className="p-2">User ID</th>
-                <th className="p-2">Name</th>
-                <th className="p-2">Total Orders</th>
-                <th className="p-2">Total Spent</th>
-                <th className="p-2">Segment</th>
-              </tr>
-            </thead>
-            <tbody>
-              {/* Example color-coded rows */}
-              <tr className="bg-green-100">
-                <td className="p-2">1</td>
-                <td className="p-2">Alice</td>
-                <td className="p-2">12</td>
-                <td className="p-2">$1200</td>
-                <td className="p-2">High-Value</td>
-              </tr>
-              <tr className="bg-yellow-100">
-                <td className="p-2">2</td>
-                <td className="p-2">Bob</td>
-                <td className="p-2">8</td>
-                <td className="p-2">$800</td>
-                <td className="p-2">Frequent</td>
-              </tr>
-              <tr className="bg-gray-100">
-                <td className="p-2">3</td>
-                <td className="p-2">Charlie</td>
-                <td className="p-2">3</td>
-                <td className="p-2">$200</td>
-                <td className="p-2">Occasional</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+    <div className="mx-auto max-w-7xl space-y-6 p-6">
+      <div>
+        <h1 className="flex items-center gap-3 font-display text-2xl font-bold tracking-tight text-white">
+          <PieIcon size={22} className="text-pink-400" /> Segments
+        </h1>
+        <p className="mt-1 text-sm text-gray-500">Segment overview derived from backend user distribution and product activity.</p>
+      </div>
+
+      <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
+        <StatCard title="Total Users" value={totalUsers || '-'} icon={Users} color="brand" />
+        <StatCard title="Verticals" value={verticals.length || '-'} icon={PieIcon} color="violet" delay={40} />
+        <StatCard title="Active Subs" value={telecomSummary.active_subs ?? '-'} icon={Radio} color="blue" delay={80} />
+        <StatCard title="Active Loans" value={fintechSummary.active_loans ?? '-'} icon={TrendingUp} color="emerald" delay={120} />
+      </div>
+
+      <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
+        <ChartWrapper type="pie" data={verticals} dataKey="value" xKey="name" title="Users by Vertical" />
+        <ChartWrapper
+          type="bar"
+          data={[
+            { name: 'Telecom Active', value: telecomSummary.active_subs || 0 },
+            { name: 'Telecom Expired', value: telecomSummary.expired_subs || 0 },
+            { name: 'Active Loans', value: fintechSummary.active_loans || 0 },
+          ]}
+          dataKey="value"
+          xKey="name"
+          title="Activity Segments"
+          color="#ec4899"
+        />
       </div>
     </div>
-  );
+  )
 }
-
-export default Segments;
