@@ -81,7 +81,7 @@ export default function Sidebar({ open, onClose }) {
               <p className="mt-0.5 font-mono text-[10px] tracking-widest text-brand-500">ENTERPRISE</p>
             </div>
           </div>
-          <button onClick={onClose} className="p-1 text-gray-500 transition-colors hover:text-white lg:hidden">
+          <button onClick={onClose} className="p-1 text-gray-4a00 transition-colors hover:text-white lg:hidden">
             <X size={16} />
           </button>
         </div>
@@ -104,7 +104,7 @@ export default function Sidebar({ open, onClose }) {
                       ${
                         isActive
                           ? 'border border-brand-500/20 bg-brand-500/15 text-brand-400'
-                          : 'text-gray-500 hover:bg-white/[0.04] hover:text-gray-200'
+                          : 'text-gray-200 hover:bg-white/[0.04] hover:text-gray-200'
                       }
                     `}
                   >
@@ -127,7 +127,7 @@ export default function Sidebar({ open, onClose }) {
                           <p className={`truncate text-xs font-medium leading-none ${isActive ? 'text-brand-300' : ''}`}>
                             {label}
                           </p>
-                          <p className="mt-0.5 truncate font-mono text-[10px] text-gray-700">{sub}</p>
+                          <p className="mt-0.5 truncate font-mono text-[10px] text-gray-400">{sub}</p>
                         </div>
                         {isActive && <ChevronRight size={10} className="flex-shrink-0 text-brand-500" />}
                       </>
