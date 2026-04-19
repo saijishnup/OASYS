@@ -1,28 +1,36 @@
-# Dependencies
+# Node dependencies
 node_modules/
 frontend/node_modules/
 backend/node_modules/
 
 # Build outputs
-dist/
-frontend/dist/
-backend/dist/
 build/
+dist/
 frontend/build/
+frontend/dist/
+backend/build/
+backend/dist/
 
-# Coverage and cache
-coverage/
+# Tool caches
 .cache/
 .vite/
 frontend/.vite/
+backend/.vite/
 
-# Environment files
+# Coverage
+coverage/
+*.lcov
+
+# Environment files (keep examples)
 .env
 .env.*
 frontend/.env
 frontend/.env.*
 backend/.env
 backend/.env.*
+!.env.example
+!frontend/.env.example
+!backend/.env.example
 
 # Logs
 npm-debug.log*
@@ -31,20 +39,21 @@ yarn-error.log*
 pnpm-debug.log*
 *.log
 
-# OS and editor files
-.DS_Store/
-**/.DS_Store
+# OS files
+.DS_Store
 Thumbs.db
+
+# Editor/IDE
 .vscode/
 .idea/
 *.swp
 *.swo
 *~
 
-# Build artifacts
+# TypeScript build info
 *.tsbuildinfo
 
-# Misc
+# Local-only config
 *.local
 .env.local
 .env.*.local
