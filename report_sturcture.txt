@@ -1,0 +1,142 @@
+oasys/
+├── backend/
+│   ├── package.json                  ← Phase 1
+│   ├── .env                          ← Phase 1
+│   ├── server.js                     ← Phase 1
+│   ├── db/
+│   │   └── connection.js             ← Phase 1
+│   ├── middleware/
+│   │   └── auth.middleware.js        ← Phase 3
+│   ├── sql/
+│   │   ├── 01_schema.sql             ← Phase 2
+             Table	        
+            verticals   	
+            users	        
+            bank_accounts	
+            transactions	
+            loans	        
+            properties	    
+            re_deals	    
+            telecom_plans	
+            subscriptions	
+            network_usage   
+            logistics_routes
+            shipments	        
+            energy_connections	
+            energy_bills	    
+            vehicles	        
+            vehicle_orders	   
+            service_requests	
+
+│   │   ├── 02_seed.sql               ← Phase 2
+            Table	        Seed Rows
+            verticals   	    6
+            users	            36
+            bank_accounts	    8
+            transactions	    10
+            loans	            5
+            properties	        7
+            re_deals	        4
+            telecom_plans	    4
+            subscriptions	    7
+            network_usage   	7
+            logistics_routes	7
+            shipments	        7
+            energy_connections	7
+            energy_bills	    7
+            vehicles	        5
+            vehicle_orders	    7
+            service_requests	6
+
+
+│   │   ├── 03_procedures.sql         ← Phase 2
+            5 procedures:ProcedureDomaintransfer_funds(from, to, amount)Fintechplace_vehicle_order(user, vehicle)Automobilesrenew_subscription(sub_id)Telecompay_energy_bill(bill_id)Energyupdate_shipment_status(shipment, status)Logistics
+│   │   └── 04_triggers.sql           ← Phase 2
+                🔹 Fintech
+                trg_after_transaction_insert
+                trg_after_loan_update
+                🔹 Real Estate
+                trg_after_deal_insert
+                trg_after_deal_update
+                🔹 Telecom
+                trg_after_subscription_update
+                trg_after_subscription_insert
+                🔹 Logistics
+                trg_after_shipment_insert
+                trg_after_shipment_update
+                🔹 Energy
+                trg_after_energy_bill_insert
+                trg_after_energy_bill_update
+                🔹 Automobiles
+                trg_after_vehicle_order_insert
+                trg_after_vehicle_order_update
+                trg_after_service_request_insert
+                ✅ Total Triggers: 13
+                All are AFTER triggers used for audit logging and automation
+
+│   └── routes/
+│       ├── auth.js                   ← Phase 3
+            2 endpoints:
+            POST /api/auth/login → returns token
+            GET /api/auth/verify → validates token
+│       ├── dashboard.js              ← Phase 3
+             7 endpoints : EndpointChart Type/kpisStat cards/vertical-summaryUsers per domain/recent-activityActivity table/txn-trendLine chart/shipment-statusDonut chart/energy-bill-statusDonut chart ← added/domain-revenueBar chart ← added
+│       ├── fintech.js                ← Phase 4
+            6 endpoints: EndpointPurposeGET /accountsAll accounts with user infoGET /transactionsAll transactions with user infoGET /loansAll loans with user infoGET /summaryKPI summary for fintech pagePOST /transferCalls transfer_funds procedureGET /txn-by-typeBreakdown for chart
+│       ├── realestate.js             ← Phase 4
+            5 endpoints:EndpointPurposeGET /propertiesAll listingsGET /dealsAll deals with buyer + agent namesGET /summaryKPI summaryGET /property-by-typeBreakdown for chartGET /deal-statusDeal status for donut chart
+│       ├── telecom.js                ← Phase 4
+            7 endpoints: EndpointPurposeGET /plansAll telecom plansGET /subscriptionsAll subs with user + plan infoGET /usageNetwork usage with user infoGET /summaryKPI summaryPOST /renewCalls renew_subscription procedureGET /sub-by-statusDonut chart dataGET /plan-by-typePrepaid vs postpaid chart
+│       ├── logistics.js              ← Phase 4
+            6 endpoints: EndpointPurposeGET /shipmentsAll shipments with sender + receiverGET /routesAll logistics routesGET /summaryKPI summary incl. revenuePOST /update-statusCalls update_shipment_status procedureGET /shipment-by-statusDonut chart dataGET /top-routesTop 5 routes by shipment count
+│       ├── energy.js                 ← Phase 4
+            7 endpoints:
+            Endpoint	Purpose
+            GET /connections	All connections with user info
+            GET /bills	All bills with user + meter info
+            GET /summary	KPI summary
+            POST /pay-bill	Calls pay_energy_bill procedure
+            GET /bill-by-status	Donut chart data
+            GET /connection-by-type	Bar chart data
+            GET /monthly-consumption	Line chart — units + amount by month
+│       └── automobiles.js            ← Phase 4
+            8 endpoints: EndpointPurposeGET /vehiclesAll vehicles + stockGET /ordersAll orders with user + vehicle infoGET /service-requestsAll service requestsGET /summaryKPI summaryPOST /place-orderCalls place_vehicle_order procedureGET /orders-by-statusDonut chart dataGET /vehicles-by-typeBar chart dataGET /service-by-statusService status chart
+│
+├── frontend/
+│   ├── package.json                  ← Phase 5
+│   ├── tailwind.config.js            ← Phase 5
+│   ├── postcss.config.js             ← Phase 5
+│   ├── vite.config.js                ← Phase 5
+        Proxy routes all /api calls from frontend :3000 → backend :5000 automatically. No CORS issues.
+│   ├── index.html                    ← Phase 5
+│   └── src/
+│       ├── main.jsx                  ← Phase 5
+│       ├── App.jsx                   ← Phase 5
+            App.jsx imports all 6 domain pages
+│       ├── index.css                 ← Phase 5
+            Global design system defined here — cards, tables, badges, buttons, inputs all consistent across every page.
+│       │
+│       ├── api/
+│       │   └── axios.js              ← Phase 5
+                Token auto-attached to every request. 401 auto-redirects to login globally.
+│       │
+│       ├── context/
+│       │   └── AuthContext.jsx       ← Phase 5
+│       │
+│       ├── components/
+│       │   ├── Navbar.jsx            ← Phase 5
+│       │   ├── Sidebar.jsx           ← Phase 5
+│       │   ├── PrivateRoute.jsx      ← Phase 5
+│       │   ├── StatCard.jsx          ← Phase 6
+│       │   ├── ChartWrapper.jsx      ← Phase 6
+│       │   └── ReportDownload.jsx    ← Phase 8
+│       │
+│       └── pages/
+│           ├── Login.jsx             ← Phase 5
+│           ├── Dashboard.jsx         ← Phase 6
+│           ├── Fintech.jsx           ← Phase 7
+│           ├── RealEstate.jsx        ← Phase 7
+│           ├── Telecom.jsx           ← Phase 7
+│           ├── Logistics.jsx         ← Phase 7
+│           ├── Energy.jsx            ← Phase 7
+│           └── Automobiles.jsx       ← Phase 7
