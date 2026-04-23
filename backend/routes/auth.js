@@ -2,6 +2,9 @@ const express = require('express');
 const router  = express.Router();
 require('dotenv').config();
 
+const ADMIN_USERNAME = process.env.ADMIN_USERNAME || 'admin';
+const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'admin123';
+
 // POST /api/auth/login
 router.post('/login', (req, res) => {
     const { username, password } = req.body;
@@ -11,8 +14,8 @@ router.post('/login', (req, res) => {
     }
 
     if (
-        username === process.env.ADMIN_USERNAME &&
-        password === process.env.ADMIN_PASSWORD
+        username === ADMIN_USERNAME &&
+        password === ADMIN_PASSWORD
     ) {
         // Generate simple base64 token
         const token = Buffer.from(`${username}:${password}`).toString('base64');
@@ -32,7 +35,7 @@ router.get('/verify', (req, res) => {
         const decoded  = Buffer.from(token, 'base64').toString('utf8');
         const [u, p]   = decoded.split(':');
 
-        if (u === process.env.ADMIN_USERNAME && p === process.env.ADMIN_PASSWORD) {
+        if (u === ADMIN_USERNAME && p === ADMIN_PASSWORD) {
             return res.json({ valid: true, username: u });
         }
         return res.status(401).json({ valid: false });

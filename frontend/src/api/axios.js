@@ -1,4 +1,7 @@
-const API_BASE = import.meta.env.VITE_API_BASE || 'http://localhost:5000/api'
+const ENV_API_BASE = import.meta.env.VITE_API_BASE?.trim()
+const API_BASE_CANDIDATES = ENV_API_BASE
+  ? [ENV_API_BASE]
+  : ['http://localhost:5001/api', 'http://localhost:5002/api', 'http://localhost:5000/api']
 
 function getToken() {
   return localStorage.getItem('oasys_token')
@@ -15,20 +18,40 @@ async function request(path, options = {}) {
     headers.Authorization = `Bearer ${token}`
   }
 
-  const response = await fetch(`${API_BASE}${path}`, {
-    ...options,
-    headers,
-  })
+  let networkError = null
 
-  const contentType = response.headers.get('content-type') || ''
-  const data = contentType.includes('application/json') ? await response.json() : await response.text()
+  for (const apiBase of API_BASE_CANDIDATES) {
+    try {
+      const response = await fetch(`${apiBase}${path}`, {
+        ...options,
+        headers,
+      })
 
-  if (!response.ok) {
-    const message = typeof data === 'object' && data?.error ? data.error : 'Request failed'
-    throw new Error(message)
+      const contentType = response.headers.get('content-type') || ''
+      const data = contentType.includes('application/json') ? await response.json() : await response.text()
+
+      if (!response.ok) {
+        const message = typeof data === 'object' && data?.error ? data.error : 'Request failed'
+        throw new Error(message)
+      }
+
+      return { data }
+    } catch (error) {
+      // Retry only for local fallback candidates on network-level failures.
+      const isNetworkFailure = error instanceof TypeError
+      if (!ENV_API_BASE && isNetworkFailure) {
+        networkError = error
+        continue
+      }
+      throw error
+    }
   }
 
-  return { data }
+  if (networkError) {
+    throw new Error('Unable to reach API. Start backend or set VITE_API_BASE in frontend/.env')
+  }
+
+  throw new Error('Request failed')
 }
 
 const api = {
